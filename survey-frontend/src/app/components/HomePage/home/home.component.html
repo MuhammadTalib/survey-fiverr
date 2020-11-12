@@ -1,0 +1,28 @@
+
+<mat-toolbar class="toolbar" color="primary">
+    <button (click)="drawer.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Survey</span>
+    <span class="example-spacer"></span>
+    
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>outbond</mat-icon>
+    </button>
+</mat-toolbar>
+
+    
+<mat-drawer-container class="example-container" [hasBackdrop]="false">
+  <mat-drawer class="drawer" #drawer>
+    <div class="drawer-inner-div">
+      <button class="navbar-button" mat-raised-button color="primary" routerLink="Dashboard">Dashboard</button>
+      <button class="navbar-button" mat-raised-button color="primary">Survey</button>
+      <button class="navbar-button" mat-raised-button color="primary">Profile</button>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+

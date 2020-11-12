@@ -25,7 +25,8 @@ export class SignUpComponent implements OnInit {
       email:this.email,
       password:this.password
     }).subscribe((res:any)=>{
-      console.log("res",res)
+      localStorage.setItem("token",res.token)
+      localStorage.setItem("userData",res.user)
     })
   }
   handleLoginClick(){

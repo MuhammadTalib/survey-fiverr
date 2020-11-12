@@ -10,4 +10,7 @@ export class AppComponent {
   constructor(){
     localStorage.setItem("token","dwyb")
   }
+  isAuthorized(){
+    return localStorage.getItem("userData")
+  }
 }

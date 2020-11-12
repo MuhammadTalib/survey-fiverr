@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttphandlerService } from "../../../Services/HTTPServices/httphandler.service"
 
 @Component({
   selector: 'app-login-page',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http:HttphandlerService) { }
   hide:Boolean = true;
   registered:Boolean= true
   email:string=""
@@ -16,7 +17,14 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void {
   }
   login(){
-    console.log("login clicked",this.email,this.password)
+    this.http.apiPost('/user/login',{
+      email:this.email,
+      password:this.password
+    }).subscribe((res:any)=>{
+      localStorage.setItem("token",res.token)
+      localStorage.setItem("userData",res.user)
+
+    })
   }
   handleSignUpClick(){
     this.registered=false;

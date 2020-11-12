@@ -1,1 +1,2 @@
-<app-login-page></app-login-page>
+<app-login-page *ngIf="!isAuthorized()"></app-login-page>
+<app-home *ngIf="isAuthorized()"></app-home>

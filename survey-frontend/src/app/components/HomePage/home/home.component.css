@@ -1,0 +1,37 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+.example-container {
+    position: absolute !important;
+    width: 100%;
+    top: 0px;
+    height: 100vh;
+}
+.toolbar{
+    position: absolute;
+    z-index: 100 !important;
+}
+.drawer{
+    width: 236px;
+}
+.navbar-button{
+    position: relative;
+    width: 90%;
+    border-radius: 20px 200px;
+    margin-bottom: 4px;
+}
+.navbar-button :hover{
+    background-color: green !important;
+}
+.drawer-inner-div{
+    margin-top: 103px;
+    margin-left: 24px; 
+    width: fit-content;
+    height: fit-content;   
+}
+mat-drawer-content {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

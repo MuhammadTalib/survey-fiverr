@@ -6,7 +6,7 @@ require('./db/mongoose')
 require('dotenv').config()
 
 const userRouter = require('./routers/userRouter');
-const hostname="localhost";
+const surveyRouter = require('./routers/surveyRouter')
 
 const app = express()
 const port = "3000"
@@ -22,7 +22,10 @@ app.use(function(req, res, next) {
 });
 
 app.use(express.json())
+
 app.use(userRouter);
+app.use(surveyRouter);
+
 
 const server = http.createServer(app)
 server.listen(port,()=>{
