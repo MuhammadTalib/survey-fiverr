@@ -1,0 +1,35 @@
+<div class="createSurveyWrapper">
+    <div class="createsurverheader">Create Survey</div>
+    <mat-form-field class="example-full-width createsurveytextboxes" appearance="outline">
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Title" [(ngModel)]="title">
+    </mat-form-field>
+    <mat-form-field class="example-full-width createsurveytextboxes" appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea class="desc-textarea" matInput placeholder="Description" [(ngModel)]="description"></textarea>
+    </mat-form-field>
+
+    <mat-radio-group class="radiogrup" aria-label="Select an option">
+        <mat-label class="surverytype">Survey Type: </mat-label>
+        <mat-radio-button class="type-button" color="primary" value="1">Multiple Choice</mat-radio-button>
+        <mat-radio-button class="type-button" color="primary" value="2">Short Answers</mat-radio-button>
+        <mat-radio-button class="type-button" color="primary" value="3">Agree/Disagree</mat-radio-button>
+    </mat-radio-group>
+
+
+
+    <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label class="surveryLifetime">Lifetime: </mat-label>
+        <mat-date-range-input
+          [formGroup]="campaignOne"
+          [rangePicker]="campaignOnePicker"
+          [comparisonStart]="campaignOne.value.start"
+          [comparisonEnd]="campaignOne.value.end">
+          <input matStartDate placeholder="Start date" formControlName="start">
+          <input matEndDate placeholder="End date" formControlName="end">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
+        <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
+    </mat-form-field>
+
+</div>

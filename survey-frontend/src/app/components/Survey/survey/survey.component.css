@@ -1,0 +1,10 @@
+.survey-main-wrapper{
+    position: absolute;
+    width: 100%;
+    margin-top: 52px;
+}
+.createsurvey{
+    margin-top: 20px;
+    position: relative;
+    left: 85%;
+}

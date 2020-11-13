@@ -19,6 +19,12 @@ const surveySchema = new mongoose.Schema({
     createdBy:{
         name:{ type:String },
         _id:{ type:String }
+    },
+    startDate:{
+        type:Date
+    },
+    endDate:{
+        type:Date
     }
 },{
     timestamps:true
