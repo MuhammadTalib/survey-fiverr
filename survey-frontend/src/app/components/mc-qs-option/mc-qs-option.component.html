@@ -1,0 +1,4 @@
+<mat-form-field class="mcqsoption" appearance="outline">
+    <mat-label>Option {{index+1}}</mat-label>
+    <input matInput placeholder="Placeholder" [(ngModel)]="choices[index].option" (change)="changeOption()">
+</mat-form-field>

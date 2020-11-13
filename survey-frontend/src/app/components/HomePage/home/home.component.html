@@ -6,7 +6,7 @@
     <span>Survey</span>
     <span class="example-spacer"></span>
     
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="logout()">
       <mat-icon>outbond</mat-icon>
     </button>
 </mat-toolbar>
@@ -20,7 +20,7 @@
       <button class="navbar-button" mat-raised-button color="primary" routerLink="Profile">Profile</button>
     </div>
   </mat-drawer>
-  <mat-drawer-content>
+  <mat-drawer-content class="ddrawer-conent">
     <router-outlet></router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>

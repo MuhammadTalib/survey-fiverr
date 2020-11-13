@@ -22,8 +22,7 @@ export class LoginPageComponent implements OnInit {
       password:this.password
     }).subscribe((res:any)=>{
       localStorage.setItem("token",res.token)
-      localStorage.setItem("userData",res.user)
-
+      localStorage.setItem("userData",JSON.stringify(res.user))
     })
   }
   handleSignUpClick(){

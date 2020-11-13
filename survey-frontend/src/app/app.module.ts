@@ -27,7 +27,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core'
 import { ReactiveFormsModule, FormControl, FormsModule } from '@angular/forms';
 import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
-
+import { McQsOptionComponent } from './components/mc-qs-option/mc-qs-option.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +37,8 @@ import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-mat
     DashboardComponent,
     SurveyComponent,
     ProfileComponent,
-    CreateSurveyComponent
+    CreateSurveyComponent,
+    McQsOptionComponent
   ],
   imports: [
     BrowserModule,

@@ -16,6 +16,7 @@ const surveySchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    options:{option:String},
     createdBy:{
         name:{ type:String },
         _id:{ type:String }

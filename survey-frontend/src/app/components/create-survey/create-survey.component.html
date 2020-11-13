@@ -9,16 +9,20 @@
         <textarea class="desc-textarea" matInput placeholder="Description" [(ngModel)]="description"></textarea>
     </mat-form-field>
 
-    <mat-radio-group class="radiogrup" aria-label="Select an option">
+    <mat-radio-group class="radiogrup" aria-label="Select an option" [(ngModel)]="surveyType">
         <mat-label class="surverytype">Survey Type: </mat-label>
-        <mat-radio-button class="type-button" color="primary" value="1">Multiple Choice</mat-radio-button>
-        <mat-radio-button class="type-button" color="primary" value="2">Short Answers</mat-radio-button>
-        <mat-radio-button class="type-button" color="primary" value="3">Agree/Disagree</mat-radio-button>
+        <mat-radio-button (change)="radioChange($event)" class="type-button" color="primary" value="mcqs">Multiple Choice</mat-radio-button>
+        <mat-radio-button (change)="radioChange($event)" class="type-button" color="primary" value="shortanswer">Short Answers</mat-radio-button>
+        <mat-radio-button (change)="radioChange($event)" class="type-button" color="primary" value="agreedisagree">Agree/Disagree</mat-radio-button>
     </mat-radio-group>
 
+    <div *ngIf="surveyType==='mcqs'" class="optionsBox">
+        <button mat-raised-button color="primary" class="addchoicebutton" (click)="addChoice()">Add Choice</button>
+        <app-mc-qs-option *ngFor="let choice of choices,let i = index" [showCheckBox]='false' [(choices)]="choices" [index]='i'></app-mc-qs-option>
+    </div>
 
 
-    <mat-form-field class="example-form-field" appearance="fill">
+    <!-- <mat-form-field class="example-form-field" appearance="fill">
         <mat-label class="surveryLifetime">Lifetime: </mat-label>
         <mat-date-range-input
           [formGroup]="campaignOne"
@@ -30,6 +34,9 @@
         </mat-date-range-input>
         <mat-datepicker-toggle matSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
         <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
-    </mat-form-field>
+    </mat-form-field> -->
+
+    <button mat-raised-button color="primary" class="saveSurveyButton" (click)="saveSurvey()">Save Record</button>
+
 
 </div>
