@@ -6,7 +6,8 @@ require('./db/mongoose')
 require('dotenv').config()
 
 const userRouter = require('./routers/userRouter');
-const surveyRouter = require('./routers/surveyRouter')
+const surveyRouter = require('./routers/surveyRouter');
+const SurveyResponseRouter = require('./routers/surveyResponseRouter');
 
 const app = express()
 const port = "3000"
@@ -25,6 +26,7 @@ app.use(express.json())
 
 app.use(userRouter);
 app.use(surveyRouter);
+app.use(SurveyResponseRouter)
 
 
 const server = http.createServer(app)

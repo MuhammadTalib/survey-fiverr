@@ -14,11 +14,24 @@ router.post('/api/survey/create',async (req,res)=>{
     }
 })
 
-router.get('/api/survey/:id?',async (req,res)=>{
+router.get('/api/user/survey/:id?/:limit?/:skip?',async (req,res)=>{
     const query = {"createdBy._id":req.params.id}
+    console.log("query",query)
     try{
-        await Survey.find(query)
-        res.status(201).send({status:true,survey})
+        let survey= await Survey.find(query)
+        const count = await Survey.count(query)
+        res.status(201).send({status:true,survey,count})
+    }catch(e){
+        res.status(400).send(e)
+    }
+})
+
+router.get('/api/survey/getAll/:limit/:skip',async (req,res)=>{
+    console.log("req.params",req.params)
+    try{
+        const surveys = await Survey.find({}, null, { skip: parseInt(req.params.skip), limit: parseInt(req.params.limit) })
+        const count = await Survey.count({})
+        res.status(201).send({status:true,surveys,count})
     }catch(e){
         res.status(400).send(e)
     }

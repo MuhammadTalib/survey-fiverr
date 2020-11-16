@@ -8,7 +8,7 @@ describe('HttphandlerService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(HttphandlerService);
-  });
+  });  
 
   it('should be created', () => {
     expect(service).toBeTruthy();

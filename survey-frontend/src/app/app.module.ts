@@ -19,7 +19,6 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSelectModule} from '@angular/material/select';
 import { DashboardComponent } from './components/Dashboard/dashboard/dashboard.component';
-import { SurveyComponent } from './components/Survey/survey/survey.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CreateSurveyComponent } from './components/create-survey/create-survey.component';
 import {MatRadioModule} from '@angular/material/radio';
@@ -28,6 +27,12 @@ import {MatNativeDateModule} from '@angular/material/core'
 import { ReactiveFormsModule, FormControl, FormsModule } from '@angular/forms';
 import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 import { McQsOptionComponent } from './components/mc-qs-option/mc-qs-option.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MySurveyComponent } from './components/MySurvey/survey.component';
+import { SurveyComponent } from './components/Survey/survey.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { SurveyRecordComponent } from './components/survey-record/survey-record.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,11 +40,12 @@ import { McQsOptionComponent } from './components/mc-qs-option/mc-qs-option.comp
     SignUpComponent,
     HomeComponent,
     DashboardComponent,
+    MySurveyComponent,
     SurveyComponent,
     ProfileComponent,
     CreateSurveyComponent,
-    McQsOptionComponent
-  ],
+    McQsOptionComponent,
+    SurveyRecordComponent  ],
   imports: [
     BrowserModule,
     RouterModule,
@@ -60,7 +66,9 @@ import { McQsOptionComponent } from './components/mc-qs-option/mc-qs-option.comp
     MatNativeDateModule,
     ReactiveFormsModule, 
     NgxMatTimepickerModule,
-    NgxMatDatetimePickerModule
+    NgxMatDatetimePickerModule,
+    MatPaginatorModule,
+    MatCheckboxModule
     // FormControl 
   ],
   providers: [

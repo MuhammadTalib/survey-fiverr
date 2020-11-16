@@ -35,17 +35,6 @@ router.post('/api/users/logout',auth, async(req,res)=>{
 })
 
 
-router.get('/users/me',auth,async (req,res)=>{
-
-    res.send(req.user)
-//     try{
-//         const users = await User.find({})
-//         res.send(users)
-//     }catch(e){
-//         res.status(500).send()
-//     }
-})
-
 router.get('/users/:id',async (req,res)=>{
     const _id=req.params.id
 
@@ -69,9 +58,9 @@ router.get('/users/:id',async (req,res)=>{
     // })
     // console.log(req.params)
 })
-router.patch('/users/me',auth ,async(req,res)=>{
+router.post('/api/users/me',auth ,async(req,res)=>{
     const updates = Object.keys(req.body)
-    const allowedUpdates = ['name','email','password','age']
+    const allowedUpdates = ['name','email','password']
     const isValidOperation = updates.every((update)=>{
         return allowedUpdates.includes(update)
     }) 
@@ -81,18 +70,10 @@ router.patch('/users/me',auth ,async(req,res)=>{
     }
 
     try{
-        // const user = await User.findById(req.params.id)
-
         updates.forEach((update)=>{
             req.user[update]=req.body[update];
         })
-
         await req.user.save()
-
-        //const user = await User.findByIdAndUpdate(req.params.id, req.body, {new:true, runValidators: true}) 
-        // if(!user){
-        //    return res.status(404).send(e)
-        // }
         res.send(req.user)
     }catch(e){
         res.status(500).send()

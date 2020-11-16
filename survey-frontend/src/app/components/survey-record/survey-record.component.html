@@ -1,0 +1,24 @@
+<div class="record-wrapper">
+    <table *ngIf="rec && rec[0]" class="table-record">
+        <thead>
+            <tr>
+                <th></th>
+                <th class="table-h">Total</th>
+                <th class="table-h">%</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let qnos of rec[0].questions">
+            <tr class="qno-head">
+                <td colspan="3" class="qno-head-title">{{qnos.title}}</td>
+            </tr>
+            <tr *ngFor="let opts of qnos.options">
+                <td class="normal-body">{{opts.option}}</td>
+                <td class="normal-body">{{opts.count}}</td>
+                <td class="normal-body">{{opts.count ? round((opts.count/rec.length)*100):0}}%</td>
+            </tr>
+        </tbody>
+        
+        
+    </table>
+    <div *ngIf="!rec || !rec[0]">No Records Found</div>
+</div>

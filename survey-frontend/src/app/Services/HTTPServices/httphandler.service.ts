@@ -39,7 +39,6 @@ export class HttphandlerService {
   }
 
   apiPost(routeURL, postData, content_type?) {
-    // console.log("postData: ", postData)
     const headers = new HttpHeaders().set("X-CustomHttpHeader", "CUSTOM_VALUE");
     const obj: any = {};
     if (!content_type) {

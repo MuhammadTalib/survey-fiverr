@@ -4,6 +4,7 @@ const validator = require('validator')
 const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken")
 
+
 const surveySchema = new mongoose.Schema({
     title:{
         type:String, 
@@ -16,7 +17,11 @@ const surveySchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    options:{option:String},
+    questions:[{
+        title:String,
+        options: []
+        // [{option:String}] || String,
+    }],
     createdBy:{
         name:{ type:String },
         _id:{ type:String }

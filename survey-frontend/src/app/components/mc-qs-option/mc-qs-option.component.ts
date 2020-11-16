@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class McQsOptionComponent implements OnInit {
 
-  @Input() choices:string; 
+  @Input() choices = []; 
   @Input() index:string; 
 
   @Input() showCheckBox:boolean; 
@@ -20,7 +20,26 @@ export class McQsOptionComponent implements OnInit {
   }
 
   changeOption(){
-    console.log("chnge option")
+    this.choicesChange.emit(this.choices);
+  }
+  radioChangeMcqs(event){
+    // this.choices[this.index].answer = event.value;
+    var choices1 = this.choices
+    for(let i=0;i<this.choices.length;i++){
+      if(parseInt(this.index) === i){
+
+        choices1[i] = {
+          answer : true,
+          option : this.choices[i].option
+        }
+      }
+      else choices1[i] = {
+        
+        answer : false,
+        option : this.choices[i].option
+      }
+    }
+    this.choices = choices1
     this.choicesChange.emit(this.choices);
   }
 
