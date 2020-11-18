@@ -10,6 +10,9 @@
     font-family: inherit;
     margin-bottom: 20px;
     padding: 20px;
+    width: 100%;
+    background-color: #dedede;
+    padding: 15px;
 }
 .survey-desc-head{
     font-size: 18px;
@@ -21,6 +24,9 @@
     font-size: 14px;
     font-family: inherit;
     margin-bottom: 20px;
+    width: 100%;
+    background-color: #dedede;
+    padding: 15px;
 }
 .saveSurveyButton{
     position: relative;

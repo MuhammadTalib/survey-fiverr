@@ -5,9 +5,10 @@
     <div class="survey-desc">{{survey.description}}</div>
 
     <div *ngFor="let question of survey.questions,let i = index">
-        <div class="question-header"> Question {{i+1}}: </div>
-
-        <div class="question-qno"> {{question.title}} </div>
+        <div>
+            <div class="question-header"> Question {{i+1}}: </div>
+            <div class="question-qno"> {{question.title}} </div>
+        </div>
 
         <div *ngIf="survey.type==='mcqs'" class="optionsBox">
             <app-mc-qs-option *ngFor="let choice of question.options,let i = index"  [showCheckBox]='false' [(choices)]="question.options" [index]='i'></app-mc-qs-option>
@@ -16,7 +17,7 @@
         <div *ngIf="survey.type==='shortanswer'" class="optionsBox">
             <mat-form-field class="example-full-width fillsurveytextbox" appearance="outline">
                 <mat-label>Your Response</mat-label>
-                <input matInput placeholder="Your Response" [(ngModel)]="question.options">
+                <input matInput placeholder="Your Response" [(ngModel)]="question.options[0]">
             </mat-form-field>    
         </div>
     

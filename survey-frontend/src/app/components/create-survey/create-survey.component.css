@@ -16,6 +16,13 @@
     margin-bottom: 20px;
     font-family: monospace;
 }
+.createsurveytimetextboxes{
+    position: relative;
+    width: 49%;
+}
+.rigthtime{
+    margin-left: 2%;
+}
 .type-button{
     width: 100%;
     margin-bottom: 13px;

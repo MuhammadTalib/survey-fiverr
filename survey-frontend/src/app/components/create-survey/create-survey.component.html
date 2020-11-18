@@ -18,6 +18,36 @@
         <textarea class="desc-textarea" matInput placeholder="Description" [(ngModel)]="description"></textarea>
     </mat-form-field>
 
+    <mat-form-field class="example-full-width createsurveytimetextboxes" appearance="outline">
+        <mat-label>Start Date</mat-label>
+        <input matInput type="datetime-local" placeholder="start date" [(ngModel)]="startDate">
+        <!-- <input matInput placeholder="StartDate" > -->
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width createsurveytimetextboxes rigthtime" appearance="outline">
+        <mat-label>End Date</mat-label>
+        <input matInput type="datetime-local" placeholder="end date" [(ngModel)]="endDate">
+        <!-- <input matInput placeholder="StartDate" > -->
+    </mat-form-field>
+
+    <!-- <mat-form-field>
+        <input matInput type="datetime-local" placeholder="start date">
+    </mat-form-field> -->
+    <!-- <mat-form-field>
+        <input 
+            matInput 
+            [ngxMatDatetimePicker]="picker" 
+            placeholder="Choose a date" 
+            [formControl]="dateControl"
+            [min]="minDate" 
+            [max]="maxDate" 
+            [disabled]="false">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #picker [showSpinners]="showSpinners" [showSeconds]="showSeconds"
+           [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond">
+        </ngx-mat-datetime-picker>
+     </mat-form-field> -->
+
     <button *ngIf="surveyType" mat-raised-button color="primary" class="addquestionbutton" (click)="addQuestion()">Add Question</button>
 
     <div *ngFor="let question of questions,let i = index">

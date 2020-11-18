@@ -3,7 +3,7 @@ const Survey = require('../models/survey')
 const router = new express.Router()
 const auth = require('../middleware/auth')
 
-router.post('/api/survey/create',async (req,res)=>{
+router.post('/api/survey/create',auth,async (req,res)=>{
     const survey = new Survey(req.body)
     console.log("surveey",survey)
     try{
@@ -14,11 +14,11 @@ router.post('/api/survey/create',async (req,res)=>{
     }
 })
 
-router.get('/api/user/survey/:id?/:limit?/:skip?',async (req,res)=>{
+router.get('/api/user/survey/:id?/:limit?/:skip?',auth,async (req,res)=>{
     const query = {"createdBy._id":req.params.id}
     console.log("query",query)
     try{
-        let survey= await Survey.find(query)
+        let survey= await Survey.find({"createdBy._id":req.params.id})
         const count = await Survey.count(query)
         res.status(201).send({status:true,survey,count})
     }catch(e){
@@ -26,10 +26,10 @@ router.get('/api/user/survey/:id?/:limit?/:skip?',async (req,res)=>{
     }
 })
 
-router.get('/api/survey/getAll/:limit/:skip',async (req,res)=>{
+router.get('/api/survey/getAll/:limit/:skip',auth,async (req,res)=>{
     console.log("req.params",req.params)
     try{
-        const surveys = await Survey.find({}, null, { skip: parseInt(req.params.skip), limit: parseInt(req.params.limit) })
+        const surveys = await Survey.find({$and:[{startDate:{$lte:new Date()}},{endDate:{$gte:new Date()}}]}, null, { skip: parseInt(req.params.skip), limit: parseInt(req.params.limit) })
         const count = await Survey.count({})
         res.status(201).send({status:true,surveys,count})
     }catch(e){

@@ -9,19 +9,38 @@ import { HttphandlerService } from 'src/app/Services/HTTPServices/httphandler.se
 export class ProfileComponent implements OnInit {
 
   constructor(private http:HttphandlerService) { }
-  user:{}
-  hide:true
+  user:{
+    name:"",
+    email:"",
+    _id:"",
+    password:""
+  }
+  hide = true
   ngOnInit(): void {
     let userData = JSON.parse(localStorage.getItem('userData'))
-    this.user = {
-      name:userData.name,
-      _id:userData._id,
-      email:userData.email
+    if(userData){
+      this.user = {
+        name:userData.name,
+        _id:userData._id,
+        email:userData.email,
+        password:""
+      }
+    }else{
+      this.http.apiPost('/users/logout',{}).subscribe((res:any)=>{
+        localStorage.clear();
+      })
     }
+    
   }
   updateUser(){
-    this.http.apiPost('/users/me',this.user).subscribe((res:any)=>{
-      
+    let data={
+      name: this.user.name,
+      email:this.user.email
+    }
+    if(this.user.password.length>6) data["password"] = this.user.password;
+
+    this.http.apiPost('/users/me',data).subscribe((res:any)=>{
+      console.log("rees",res)
     })
   }
 

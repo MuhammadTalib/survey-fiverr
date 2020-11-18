@@ -15,7 +15,8 @@ export class CreateSurveyComponent implements OnInit {
   user:{}
   choices=null
   surveyType:string = null
-  
+  startDate
+  endDate
   questions=[]
   
   addQuestion(){
@@ -35,10 +36,12 @@ export class CreateSurveyComponent implements OnInit {
   }
   saveSurvey(){
     let data={
-      title:this.title,
-      description:this.description,
-      type:this.surveyType,
-      questions:this.questions
+      title       : this.title,
+      description : this.description,
+      type        : this.surveyType,
+      questions   : this.questions,
+      startDate   : this.startDate,
+      endDate     : this.endDate
     }
     this.user && (data['createdBy'] = this.user)
     this.choices && (data['options'] = this.choices)
@@ -46,7 +49,9 @@ export class CreateSurveyComponent implements OnInit {
       this.title=""
       this.description=""
       this.choices=null
-      this.surveyType = ""
+      this.surveyType = "",
+      this.startDate = this.startDate,
+      this.endDate = this.endDate,
       this.questions=[]
     })
   }
