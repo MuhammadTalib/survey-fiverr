@@ -26,7 +26,7 @@ router.get('/api/user/survey/:id?/:limit?/:skip?',auth,async (req,res)=>{
     }
 })
 
-router.get('/api/survey/getAll/:limit/:skip',auth,async (req,res)=>{
+router.get('/api/survey/getAll/:limit/:skip', async (req,res)=>{
     console.log("req.params",req.params)
     try{
         const surveys = await Survey.find({$and:[{startDate:{$lte:new Date()}},{endDate:{$gte:new Date()}}]}, null, { skip: parseInt(req.params.skip), limit: parseInt(req.params.limit) })

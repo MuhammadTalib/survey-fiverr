@@ -32,6 +32,9 @@ import { MySurveyComponent } from './components/MySurvey/survey.component';
 import { SurveyComponent } from './components/Survey/survey.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SurveyRecordComponent } from './components/survey-record/survey-record.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogOverviewExampleDialog } from "./components/HomePage/home/home.component"
 
 @NgModule({
   declarations: [
@@ -45,7 +48,9 @@ import { SurveyRecordComponent } from './components/survey-record/survey-record.
     ProfileComponent,
     CreateSurveyComponent,
     McQsOptionComponent,
-    SurveyRecordComponent  ],
+    SurveyRecordComponent,
+    DialogOverviewExampleDialog,
+    LandingPageComponent  ],
   imports: [
     BrowserModule,
     RouterModule,
@@ -62,6 +67,7 @@ import { SurveyRecordComponent } from './components/survey-record/survey-record.
     HttpClientModule,
     BrowserAnimationsModule,
     MatRadioModule,
+    MatDialogModule,
     // MatDatepickerModule,
     // MatNativeDateModule,
     ReactiveFormsModule, 

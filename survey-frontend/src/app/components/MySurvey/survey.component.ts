@@ -19,9 +19,13 @@ export class MySurveyComponent implements OnInit {
 
   constructor(private router: Router,private http:HttphandlerService) { 
     let userData = JSON.parse(localStorage.getItem('userData'))
-    this.user = {
-      name:userData.name,
-      _id:userData._id
+    if(userData) {
+      this.user = {
+        name:userData.name,
+        _id:userData._id
+      }
+    }else{
+      this.router.navigate(['/login'])
     }
   }
 

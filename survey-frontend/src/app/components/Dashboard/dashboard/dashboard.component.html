@@ -3,7 +3,7 @@
     <button 
         *ngFor="let survey of surveys, let i = index" 
         mat-raised-button class="dashboard-card"
-        (click)="mockSurvey(survey)"
+        (click)="checkSignInFirst(survey)"
         >{{survey.title}}</button>
 
     <!-- <mat-paginator *ngIf="count" class="paginator" 

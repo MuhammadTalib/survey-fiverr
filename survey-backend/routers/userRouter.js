@@ -15,8 +15,11 @@ router.post('/api/user/create',async (req,res)=>{
 })
 
 router.post('/api/user/login',async (req,res)=>{
+    console.log("req",req.body)
     try{
         const user = await User.findByCredentials(req.body.email,req.body.password)
+        console.log("user",user)
+
         const token = await user.generateAuthToken()
         res.send({status:true,user:user,token})
     }catch(e){
