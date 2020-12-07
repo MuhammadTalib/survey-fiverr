@@ -1,6 +1,7 @@
 const express = require('express');
 const http = require('http');
 const cors = require("cors");
+const path = require("path")
 const bodyParser = require('body-parser')
 require('./db/mongoose')
 require('dotenv').config()
@@ -15,6 +16,7 @@ const port = "3000"
 app.use(cors({credentials: true}));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -28,6 +30,12 @@ app.use(userRouter);
 app.use(surveyRouter);
 app.use(SurveyResponseRouter)
 
+app.use(express.static(path.join(__dirname, 'public')));
+
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 const server = http.createServer(app)
 server.listen(port,()=>{

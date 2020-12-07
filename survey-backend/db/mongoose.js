@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-mongoose.connect("mongodb://127.0.0.1:27017/survey",{
+mongoose.connect("mongodb+srv://Admin:Qjt9DBrzYRzwLPb0@cluster0.msqoc.mongodb.net/survey?retryWrites=true&w=majority",{
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
