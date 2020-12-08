@@ -28,22 +28,15 @@ export class LoginPageComponent implements OnInit {
     })    
   }
   login_page(){
-    console.log("login",{
-      email:this.email,
-      password:this.password
-    })
     this.http.apiPost('/user/login',{
       email:this.email,
       password:this.password
     }).subscribe((res:any)=>{
-      console.log("res",res)
       this.userDataService.updateUser(res.user)
       localStorage.setItem("token",res.token)
       localStorage.setItem("userData",JSON.stringify(res.user))
       // this.router.navigate(['/Dashboard'])
-    },
-    console.error
-    )
+    })
   }
   handleSignUpClick(){
     // this.registered=false;

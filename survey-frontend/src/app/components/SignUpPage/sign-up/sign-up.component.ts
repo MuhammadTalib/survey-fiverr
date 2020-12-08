@@ -29,17 +29,11 @@ export class SignUpComponent implements OnInit {
     })
   }
   signUp(){
-    console.log("signup",{
-      name:this.Username,
-      email:this.email,
-      password:this.password
-    })
     this.http.apiPost('/user/create',{
       name:this.Username,
       email:this.email,
       password:this.password
     }).subscribe((res:any)=>{
-      console.log("res",res)
       this.userDataService.updateUser(res.user)
       localStorage.setItem("token",res.token)
       localStorage.setItem("userData",JSON.stringify(res.user))

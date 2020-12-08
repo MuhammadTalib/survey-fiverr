@@ -16,6 +16,8 @@ export class DashboardComponent implements OnInit {
     private router: Router
     ) { }
 
+  displayedColumns: string[] = ['Survey_Number', 'Title', 'no_of_questions', 'SurveyStartDate', 'SurveyEndDate','participate'];
+
   limit = 10;
   skip = 0;
   count = 0
@@ -27,14 +29,17 @@ export class DashboardComponent implements OnInit {
     this.userDataService.userData.subscribe(data => {
       this.userData = data;
     })
-    this.http.apiGet(`/survey/getAll/${this.limit}/${this.skip}`).subscribe((res:any)=>{
+    this.http.apiGet(`/survey/getAll`).subscribe((res:any)=>{
       this.totalDocCounts = res.count
       this.surveys = res.surveys
       this.count = res.count
     })
   }
+  getTime(date){
+    var d=new Date(date);
+    return d.getMonth()+'/'+d.getDate()+'/'+d.getFullYear()+'   '+d.getHours()+":"+d.getMinutes();
+  }
   handlePage(event){
-    console.log("event",event)
   }
   checkSignInFirst(survey:any){
     if(this.userData){

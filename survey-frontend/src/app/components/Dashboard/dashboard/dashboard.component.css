@@ -20,3 +20,10 @@
     text-overflow: ellipsis;
     overflow: hidden;
 }
+.participate-button{
+    background-color: #6dbad4;
+    color: white;
+}
+.table-survey{
+    width: 100%;
+}

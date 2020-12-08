@@ -48,7 +48,7 @@
         </ngx-mat-datetime-picker>
      </mat-form-field> -->
 
-    <button *ngIf="surveyType" mat-raised-button color="primary" class="addquestionbutton" (click)="addQuestion()">Add Question</button>
+    <button *ngIf="surveyType" mat-raised-button class="addquestionbutton" (click)="addQuestion()">Add Question</button>
 
     <div *ngFor="let question of questions,let i = index">
         <div class="question-header"> Question {{i+1}}: </div>
@@ -59,7 +59,7 @@
         </mat-form-field>
 
         <div *ngIf="surveyType==='mcqs'" class="optionsBox">
-            <button mat-raised-button color="primary" class="addchoicebutton" (click)="addChoice(i)">Add Choice</button>
+            <button mat-raised-button  class="addchoicebutton" (click)="addChoice(i)">Add Choice</button>
             <mat-radio-group aria-label="Select an option" >
                 <app-mc-qs-option *ngFor="let choice of question.options,let i = index" [showCheckBox]='true' [(choices)]="question.options" [index]='i'></app-mc-qs-option>
             </mat-radio-group>
@@ -84,21 +84,7 @@
    
 
 
-    <!-- <mat-form-field class="example-form-field" appearance="fill">
-        <mat-label class="surveryLifetime">Lifetime: </mat-label>
-        <mat-date-range-input
-          [formGroup]="campaignOne"
-          [rangePicker]="campaignOnePicker"
-          [comparisonStart]="campaignOne.value.start"
-          [comparisonEnd]="campaignOne.value.end">
-          <input matStartDate placeholder="Start date" formControlName="start">
-          <input matEndDate placeholder="End date" formControlName="end">
-        </mat-date-range-input>
-        <mat-datepicker-toggle matSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
-        <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
-    </mat-form-field> -->
-
-    <button *ngIf="surveyType" mat-raised-button color="primary" class="saveSurveyButton" (click)="saveSurvey()">Save Record</button>
+    <button *ngIf="surveyType" mat-raised-button class="saveSurveyButton" (click)="saveSurvey()">Save Record</button>
 
 
 </div>

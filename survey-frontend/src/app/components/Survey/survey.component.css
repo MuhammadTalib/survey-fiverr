@@ -30,6 +30,8 @@
 }
 .saveSurveyButton{
     position: relative;
+    background-color: #6dbad4;
+    color: white;
     left: 50%;
     margin-top: 40px;
     width: 140px;

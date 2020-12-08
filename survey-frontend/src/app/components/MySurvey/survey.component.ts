@@ -43,7 +43,6 @@ export class MySurveyComponent implements OnInit {
     this.router.navigate(['/SurveyRecord' ,{survey:JSON.stringify(survey)}]);
   }
   handlePage(event){
-    console.log("event",event)
   }
 
 }

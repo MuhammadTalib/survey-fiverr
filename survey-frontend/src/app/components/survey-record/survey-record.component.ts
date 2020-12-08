@@ -24,7 +24,6 @@ export class SurveyRecordComponent implements OnInit {
       const rec = res.survey
       this.surveyType=res.survey[0].type
       if(res.survey[0].type==="agreedisagree"){
-        console.log("agreedisagree")
         const ric = res.survey[0].questions.map(m=>{
           return {
             title:m.title,
@@ -38,7 +37,6 @@ export class SurveyRecordComponent implements OnInit {
         })
         this.questions = ric
       } else if(res.survey[0].type==="mcqs"){
-        console.log("mcqs")
         this.questions = res.survey[0].questions.map(m=>{
           return {
             title:m.title,
@@ -47,7 +45,6 @@ export class SurveyRecordComponent implements OnInit {
           }
         })
       } else {
-        console.log("shortanswer")
         this.questions = res.survey[0].questions.map(m=>{
           return {
             title:m.title,
@@ -87,11 +84,9 @@ export class SurveyRecordComponent implements OnInit {
       //     for(let k=0;k<res.survey;k++){
       //       if(res.survey[k].questions[i].options[j].answer===true){
       //         rec.options[j].count++
-      //         console.log("dwd",res.survey[k].questions[i].options[j].answer)
       //       }
       //     }
       //   }
-      //   console.log("rec",rec)
       // }
     })
 

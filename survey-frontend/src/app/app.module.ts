@@ -35,6 +35,7 @@ import { SurveyRecordComponent } from './components/survey-record/survey-record.
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogOverviewExampleDialog } from "./components/HomePage/home/home.component"
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { DialogOverviewExampleDialog } from "./components/HomePage/home/home.com
     MatButtonModule,
     MatSelectModule,
     AppRoutingModule,
+    MatTableModule,
     MatInputModule,
     MatIconModule,
     MatSidenavModule,

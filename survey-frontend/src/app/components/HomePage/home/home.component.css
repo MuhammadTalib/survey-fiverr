@@ -26,11 +26,9 @@
 .navbar-button{
     position: relative;
     width: 90%;
+    background-color: #6dbad4;
     border-radius: 20px 200px;
     margin-bottom: 4px;
-}
-.navbar-button :hover{
-    /* background-color: green !important; */
 }
 .drawer-inner-div{
     margin-top: 103px;

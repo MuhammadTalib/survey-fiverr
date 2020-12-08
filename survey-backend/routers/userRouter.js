@@ -15,10 +15,8 @@ router.post('/api/user/create',async (req,res)=>{
 })
 
 router.post('/api/user/login',async (req,res)=>{
-    console.log("req",req.body)
     try{
         const user = await User.findByCredentials(req.body.email,req.body.password)
-        console.log("user",user)
 
         const token = await user.generateAuthToken()
         res.send({status:true,user:user,token})
@@ -51,15 +49,6 @@ router.get('/users/:id',auth,async (req,res)=>{
         res.status(500).send();
     }
  
-    // User.findById(_id).then((user)=>{
-    //     if(!user){
-    //         return res.status(404).send()
-    //     }
-    //     res.status(200).send(user)
-    // }).catch(e=>{
-    //     res.status(500).send(e)
-    // })
-    // console.log(req.params)
 })
 router.post('/api/users/me',auth ,async(req,res)=>{
     const updates = Object.keys(req.body)
@@ -67,7 +56,6 @@ router.post('/api/users/me',auth ,async(req,res)=>{
     const isValidOperation = updates.every((update)=>{
         return allowedUpdates.includes(update)
     }) 
-    console.log("isValidOperation",isValidOperation)
     if(!isValidOperation){
         return res.status(400).send({error:'Invalid Updates!'})
     }

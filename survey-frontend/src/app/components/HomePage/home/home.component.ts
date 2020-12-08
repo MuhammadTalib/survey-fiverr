@@ -31,7 +31,6 @@ export class HomeComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       // this.animal = result;
     });
   }
@@ -47,7 +46,6 @@ export class HomeComponent implements OnInit {
   }
   logout(){
     this.http.apiPost('/users/logout',{}).subscribe((res:any)=>{
-      console.log("res",res)
       localStorage.clear();
       this.userDataService.updateUser(null);
       window.location.reload();
@@ -71,7 +69,6 @@ export class DialogOverviewExampleDialog {
     ) {
 
       this.dialogRef.afterClosed().subscribe(result => {
-        console.log("result",result)
       });
     }
     ngOnInit(): void {

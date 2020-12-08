@@ -43,4 +43,6 @@ table, th, td {
     left: 50%;
     transform: translateX(-50%);
     margin-top: 20px;
+    background-color: #6dbad4;
+    color: white;
 }

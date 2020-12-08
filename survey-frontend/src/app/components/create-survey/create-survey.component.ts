@@ -28,7 +28,6 @@ export class CreateSurveyComponent implements OnInit {
     this.questions[i].options.push({option:"",answer:false})
   }
   radioChange(event){
-    console.log("event",event.value)
     this.surveyType= event.value
     if(event.value==="mcqs") this.questions = [{title:'',options:  [{option:'',answer:false},{option:'',answer:false}]}]
     else if(event.value === "shortanswer") this.questions = [{title:'',options: ""}]

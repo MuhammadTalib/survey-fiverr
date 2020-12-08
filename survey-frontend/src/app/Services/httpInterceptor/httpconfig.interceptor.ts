@@ -35,7 +35,6 @@ export class HttpConfigInterceptor implements HttpInterceptor {
         }
         else {
             if (request.url.substr(-10) == "User/Login" || request.url.substr(-23) == "User/forgetUserPassword") {
-                console.log('Either Login or Forgot Password request')
             }
             else {
                 localStorage.removeItem('token');  

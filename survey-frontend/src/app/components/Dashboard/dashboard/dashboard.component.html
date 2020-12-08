@@ -1,10 +1,51 @@
 <div class="dashboard-main-wrapper">
 
-    <button 
+    <!-- <button 
         *ngFor="let survey of surveys, let i = index" 
         mat-raised-button class="dashboard-card"
         (click)="checkSignInFirst(survey)"
-        >{{survey.title}}</button>
+        >{{survey.title}}</button> -->
+
+    <table mat-table [dataSource]="surveys" class="mat-elevation-z8 table-survey" >
+        <ng-container matColumnDef="Survey_Number">
+            <th mat-header-cell *matHeaderCellDef> Survey Number </th>
+            <td mat-cell *matCellDef="let element ; let i = index;"> {{i+1}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="Title">
+            <th mat-header-cell *matHeaderCellDef> Title </th>
+            <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="no_of_questions">
+            <th mat-header-cell *matHeaderCellDef> # of questions </th>
+            <td mat-cell *matCellDef="let element"> {{element.questions.length}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="SurveyStartDate">
+            <th mat-header-cell *matHeaderCellDef> Survey Start Date </th>
+            <td mat-cell *matCellDef="let element"> {{getTime(element.startDate)}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="SurveyEndDate">
+            <th mat-header-cell *matHeaderCellDef> Survey End Date </th>
+            <td mat-cell *matCellDef="let element"> {{getTime(element.endDate)}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="participate">
+            <th mat-header-cell *matHeaderCellDef> Symbol </th>
+            <td mat-cell *matCellDef="let element">
+                <button 
+                    mat-raised-button
+                    class="participate-button"
+                    (click)="checkSignInFirst(element)"
+                >Participate</button>
+            </td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
 
     <!-- <mat-paginator *ngIf="count" class="paginator" 
             [length]="totalDocCounts"

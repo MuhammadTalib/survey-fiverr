@@ -40,7 +40,6 @@ export class ProfileComponent implements OnInit {
     if(this.user.password.length>6) data["password"] = this.user.password;
 
     this.http.apiPost('/users/me',data).subscribe((res:any)=>{
-      console.log("rees",res)
     })
   }
 

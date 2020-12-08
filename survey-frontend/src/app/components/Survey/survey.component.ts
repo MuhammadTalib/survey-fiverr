@@ -36,7 +36,6 @@ export class SurveyComponent implements OnInit {
   }
   saveSurvey(){
     let data=this.survey
-    console.log("survey",data)
 
     this.user && (data['performedBy'] = this.user)
     data['surveyID']=this.survey._id

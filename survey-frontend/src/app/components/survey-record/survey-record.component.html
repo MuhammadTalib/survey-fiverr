@@ -19,6 +19,6 @@
             </tr>
         </tbody>
     </table>
-    <button class="exportbtn" color="primary" *ngIf="rec && rec.length && surveyType" (click)="export_xlsx('exportContent')" mat-raised-button>Export</button>
+    <button class="exportbtn" *ngIf="rec && rec.length && surveyType" (click)="export_xlsx('exportContent')" mat-raised-button>Export</button>
     <div *ngIf="!rec">No Records Found</div>
 </div>
